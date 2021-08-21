@@ -10,7 +10,7 @@ const signupcustomer = async (req, res) => {
       console.error("Email used in already");
       res.status(201).json({ massage: "Error" });
     } else {
-      const createCustomer = new createCustomer({ firstname, lastname, address,city,phone,password});
+      const createCustomer = new Customer({ firstname, lastname, address,city,phone,email,password});
       await createCustomer.save();
       res.status(200).json(createCustomer);
     }
@@ -51,17 +51,17 @@ const signupcustomer = async (req, res) => {
 
 const deletecustomer = async (req, res) => {
   const customerId = req.params.id;
-  const deleteAdmin = await Customer.findById(customerId);
+  const deleteCustomer = await Customer.findById(customerId);
 
-  await deleteAdmin.remove();
+  await deleteCustomer.remove();
 
-  res.status(200).json({ Admin });
+  res.status(200).json({ Customer });
 };
 
 const getcustomerById = async (req, res, next) => {
   const customerID = req.params.id;
   const customer = await Customer.findById(customerID);
-  res.json(admin);
+  res.json(customer);
 };
 
 exports.signupcustomer = signupcustomer;
