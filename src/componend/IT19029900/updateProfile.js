@@ -1,37 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CustomerNavigation from "../customerNavigation";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
 import CustomerFooter from "../customerFooter";
 import detalis from "../../details.jpg";
 import aveter from "../../avatar.png";
 
-const Profile = () => {
-  const [profile, setprofile] = useState({});
-
-  const history = useHistory();
-
-  function logout() {
-    localStorage.removeItem("CustomerIsLoggedIn");
-    localStorage.removeItem("CustomerID");
-
-    history.push("/");
-    window.location.reload();
-  }
-
-  useEffect(() => {
-    const sendRequest = async () => {
-      const { data } = await axios.get(
-        `http://localhost:5000/api/customers/${localStorage.getItem(
-          "CustomerID"
-        )}`
-      );
-      setprofile(data);
-      console.log(data);
-    };
-    sendRequest();
-  }, []);
-
+const updateProfile = () => {
   return (
     <React.Fragment>
       <CustomerNavigation />
@@ -39,7 +12,7 @@ const Profile = () => {
       <div class="card text-white">
         <img width="500" height="150" class="card-img" src={detalis} alt="" />
         <div class="card-img-overlay">
-          <h1 class="card-title text-center">PROFILE</h1>
+          <h1 class="card-title text-center">UPDATE PROFILE</h1>
         </div>
       </div>
 
@@ -47,11 +20,6 @@ const Profile = () => {
         <section id="actions" class="py-4 mb-4 bg-light">
           <div class="container">
             <div class="row">
-              <div class="col-md-3">
-                <a href="#" class="btn btn-success btn-block">
-                  Edit Profile
-                </a>
-              </div>
               <div class="col-md-3">
                 <a href="#" class="btn btn-danger btn-block">
                   <i class="fas fa-trash"></i> Delete Account
@@ -67,7 +35,7 @@ const Profile = () => {
               <div class="col-md-9">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Profile</h4>
+                    <h4>Edit Profile</h4>
                   </div>
                   <div class="card-body">
                     <form>
@@ -78,8 +46,6 @@ const Profile = () => {
                             type="text"
                             class="form-control"
                             placeholder="First name"
-                            value={profile.firstname}
-                            readOnly
                           />
                         </div>
                         <div class="col">
@@ -88,31 +54,22 @@ const Profile = () => {
                             type="text"
                             class="form-control"
                             placeholder="Last name"
-                            value={profile.lastname}
-                            readOnly
                           />
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="Addresss">Addresss</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Address"
-                          value={profile.address}
-                          readOnly
-                        />
+                        <input type="text" class="form-control" value="250/1" />
                       </div>
 
                       <div class="form-group">
                         <label for="city">City</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="City"
-                          value={profile.city}
-                          readOnly
-                        />
+                        <select class="form-control" id="city">
+                          <option>Kolonnawa</option>
+                          <option>Wellampitiya</option>
+                          <option>Malabe</option>
+                          <option>Colombo 1-15</option>
+                        </select>
                       </div>
 
                       <div class="form-group">
@@ -120,8 +77,7 @@ const Profile = () => {
                         <input
                           type="text"
                           class="form-control"
-                          value={profile.phone}
-                          readOnly
+                          value="0778950437"
                         />
                       </div>
 
@@ -130,8 +86,7 @@ const Profile = () => {
                         <input
                           type="email"
                           class="form-control"
-                          value={profile.email}
-                          readOnly
+                          value="test@test.com"
                         />
                       </div>
 
@@ -140,21 +95,22 @@ const Profile = () => {
                         <input
                           type="password"
                           class="form-control"
-                          value={profile.password}
-                          readOnly
+                          value="22222222"
                         />
                       </div>
+
+                      <button class="btn btn-primary btn-block" type="submit">
+                        Update
+                      </button>
                     </form>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
-                <h3>HI {profile.lastname}</h3>
+                <h3>Your Avatar</h3>
                 <img src={aveter} alt="" class="d-block img-fluid mb-3" />
                 <button class="btn btn-primary btn-block">Edit Image</button>
-                <button class="btn btn-danger btn-block" onClick={logout}>
-                  Log out
-                </button>
+                <button class="btn btn-danger btn-block">Delete Image</button>
               </div>
             </div>
           </div>
@@ -166,4 +122,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default updateProfile;
