@@ -37,13 +37,25 @@ const customerNavigation = () => {
                 </Link>
               )}
             </li>
-            <li class="nav-item">
-              {localStorage.getItem("CustomerIsLoggedIn") && (
-                <Link class="nav-link" to="/customerProfile">
+            {localStorage.getItem("CustomerIsLoggedIn") && (
+              <li class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                >
                   Feedback
-                </Link>
-              )}
-            </li>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="#" class="dropdown-item">
+                    Link 1
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    Link 2
+                  </a>
+                </div>
+              </li>
+            )}
           </ul>
         </div>
       </nav>
