@@ -6,7 +6,7 @@ import UpdateProfile from './componend/IT19029900/updateProfile';
 import CustomerProfile from './componend/IT19029900/profile';
 import CustomerLogin from './componend/IT19029900/customerLogin';
 import CustomerRegister from './componend/IT19029900/customerRegister';
-
+import AddFeedback from './componend/IT17016476/createFeedback';
 
 function App() {
   return (
@@ -32,6 +32,11 @@ function App() {
 
     <Route path ="/updateProfile" exact>
     <UpdateProfile/>
+    </Route>
+
+
+    <Route path ="/addFeedback" exact>
+    <AddFeedback/>
     </Route>
 
      

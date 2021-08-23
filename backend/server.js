@@ -33,6 +33,13 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
 
+const feedbackRouter = require('./routes/feedback/feedback-route');
+ 
+app.use('/feedback', feedbackRouter);
+
+
+
+
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
