@@ -12,8 +12,9 @@ function App() {
   return (
     <React.Fragment>
     
-
     <Route path ="/" exact>
+	
+	
       <Home/>
     </Route>
 

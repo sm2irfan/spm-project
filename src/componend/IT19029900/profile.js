@@ -56,11 +56,7 @@ const Profile = () => {
                   Edit Profile
                 </button>
               </div>
-              <div class="col-md-3">
-                <a href="#" class="btn btn-danger btn-block">
-                  <i class="fas fa-trash"></i> Delete Account
-                </a>
-              </div>
+              <div class="col-md-3"></div>
             </div>
           </div>
         </section>
@@ -145,7 +141,7 @@ const Profile = () => {
               <div class="col-md-3">
                 <h3>HI {profile.lastname}</h3>
                 <img src={aveter} alt="" class="d-block img-fluid mb-3" />
-                <button class="btn btn-primary btn-block">Edit Image</button>
+
                 <button class="btn btn-danger btn-block" onClick={logout}>
                   Log out
                 </button>
