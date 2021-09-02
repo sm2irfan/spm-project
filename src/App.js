@@ -14,8 +14,7 @@ function App() {
     
     <Route path ="/" exact>
 	
-	
-      <Home/>
+    <Home/>
     </Route>
 
     <Route path ="/customerLogin" exact>
@@ -30,13 +29,11 @@ function App() {
     <CustomerRegister/>
     </Route>
 
-
     <Route path ="/updateProfile" exact>
     <UpdateProfile/>
     </Route>
 
-     
-     
+    
 </React.Fragment>
   );
 }
