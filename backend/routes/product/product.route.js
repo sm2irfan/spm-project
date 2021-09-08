@@ -23,13 +23,14 @@ router.route('/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
-
+//get by id
 router.route('/:id').get((req, res) => {
   Product.findById(req.params.id)
     .then(product => res.json(product))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//for delete
 router.route('/:id').delete((req, res) => {
   Product.findByIdAndDelete(req.params.id)
     .then(() => res.json('product deleted.'))
