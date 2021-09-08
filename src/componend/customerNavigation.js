@@ -50,7 +50,7 @@ const customerNavigation = () => {
                   <a href="/addFeedback" class="dropdown-item">
                     Add Feedback
                   </a>
-                  <a href="#" class="dropdown-item">
+                  <a href="/viewFeedback" class="dropdown-item">
                     View Feedback
                   </a>
                 </div>

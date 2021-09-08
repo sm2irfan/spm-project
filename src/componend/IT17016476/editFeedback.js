@@ -6,22 +6,49 @@ import detalis from "../../details.jpg";
 import axios from 'axios';
 
 
-export default class CreateFeedback extends Component {
+export default class EditFeedback extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangename = this.onChangename.bind(this);
-    this.onChangeemail = this.onChangeemail.bind(this);
-    this.onChangemessage = this.onChangemessage.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
     this.state = {
-      name: '',
-      email: '',
-      message: ''
+        id:'',
+        name:'',
+        email:'',
+        message:''
+      }
+  
+      this.handleInputChange = this.handleInputChange.bind(this);
     }
-  }
-
+  
+    componentWillMount(){
+      this.getMeetupDetails();
+    }
+  
+    getMeetupDetails(){
+      let addId = this.props.match.params.id;
+      axios.get(`http://localhost:5000/feedback/add/${addId}`)
+      .then(response => {
+        this.setState({
+          id: response.data.id,
+          name: response.data.name,
+         email: response.data.email,
+          message: response.data.message
+        }, () => {
+          console.log(this.state);
+        });
+      })
+      .catch(err => console.log(err));
+      }
+  
+    editMeetup(newMeetup){
+      axios.request({
+        method:'put',
+        url:`http://localhost:5000/feedback/add/${this.state.id}`,
+        data: newadd
+      }).then(response => {
+        this.props.history.push('/');
+      }).catch(err => console.log(err));
+    }
   onChangename(e) {
     this.setState({
       name: e.target.value
@@ -53,7 +80,7 @@ export default class CreateFeedback extends Component {
 
     console.log(feedbacks);
     console.log("This is for feedback checking");
-    axios.post('http://localhost:5000/feedback/add', feedbacks)
+    axios.post(`http://localhost:5000/feedback/add/${addId}`)
       .then(res => console.log(res.data));
 
     // window.location = '/';

@@ -7,6 +7,7 @@ import CustomerProfile from './componend/IT19029900/profile';
 import CustomerLogin from './componend/IT19029900/customerLogin';
 import CustomerRegister from './componend/IT19029900/customerRegister';
 import AddFeedback from './componend/IT17016476/createFeedback';
+import ViewFeedback from './componend/IT17016476/viewFeedback';
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
 
     <Route path ="/addFeedback" exact>
     <AddFeedback/>
+    </Route>
+    
+    <Route path ="/viewFeedback" exact>
+    <ViewFeedback/>
     </Route>
 
      

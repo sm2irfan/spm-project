@@ -23,4 +23,34 @@ router.route('/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
  
+
+
+
+router.route('/:id').get((req, res) => {
+  Feedback.findById(req.params.id)
+    .then(feedback => res.json(feedback))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').delete((req, res) => {
+  Feedback.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Feedback deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req, res) => {
+ Feedback.findById(req.params.id)
+    .then(feedback => {
+      feedback.name = req.body.name;
+      feedback.email = req.body.email;
+      feedback.message = req.body.message;
+    
+     feedback.save()
+        .then(() => res.json('Feedback updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
 module.exports = router;
