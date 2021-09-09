@@ -19,7 +19,7 @@ router.route('/add').post((req, res) => {
   });
  
   newFeedback.save()
-  .then(() => res.json('Feedback added!'))
+  .then(() => res.json('Feedback added to this page!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
  
