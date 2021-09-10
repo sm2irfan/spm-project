@@ -2,7 +2,7 @@ import React from 'react'
 
 const admin = () => {
     return (
-        <div id="wrapper" >
+        <div id="wrapper"  >
 
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
