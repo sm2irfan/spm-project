@@ -20,6 +20,12 @@ function App() {
     <React.Fragment>
     <Home></Home>
      
+    <BrowserRouter>
+            <Route path="/create-promotion" component={CreateProducts} exact/>
+            <Route path="/list-promotion" component={ListProducts} exact/>
+            <Route path="/update-promotion/:id" component={UpdateProducts} exact/>
+
+          </BrowserRouter>
      
 </React.Fragment>
   );
