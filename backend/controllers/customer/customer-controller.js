@@ -1,37 +1,45 @@
-const Customer = require("../../model/customer/customer")
-
+const Customer = require("../../model/customer/customer");
 
 const signupcustomer = async (req, res) => {
-    const { firstname, lastname, address,city,phone,email,password} = req.body;
-  
-    const exisitingAdmin = await Customer.findOne({ email: email });
-  
-    if (exisitingAdmin) {
-      console.error("Email used in already");
-      res.status(201).json({ massage: "Error" });
-    } else {
-      const createCustomer = new Customer({ firstname, lastname, address,city,phone,email,password});
-      await createCustomer.save();
-      res.status(200).json(createCustomer);
-    }
-  };
+  const { firstname, lastname, address, city, phone, email, password } =
+    req.body;
 
-  const logincustomer = async (req, res) => {
-    const { email, password } = req.body;
-  
-    let existingUser = await Customer.findOne({ email: email });
-  
-    if (!existingUser || existingUser.password !== password) {
-      console.log("Error");
-      res.status(201).json({ massage: "Error" });
-    } else {
-      res.status(200).json(existingUser);
-    }
-  };
+  const exisitingAdmin = await Customer.findOne({ email: email });
 
+  if (exisitingAdmin) {
+    console.error("Email used in already");
+    res.status(201).json({ massage: "Error" });
+  } else {
+    const createCustomer = new Customer({
+      firstname,
+      lastname,
+      address,
+      city,
+      phone,
+      email,
+      password,
+    });
+    await createCustomer.save();
+    res.status(200).json(createCustomer);
+  }
+};
 
-  const updatecustomer = async (req, res) => {
-  const { firstname, lastname, address, city,phone,email,password} = req.body;
+const logincustomer = async (req, res) => {
+  const { email, password } = req.body;
+
+  let existingUser = await Customer.findOne({ email: email });
+
+  if (!existingUser || existingUser.password !== password) {
+    console.log("Error");
+    res.status(201).json({ massage: "Error" });
+  } else {
+    res.status(200).json(existingUser);
+  }
+};
+
+const updatecustomer = async (req, res) => {
+  const { firstname, lastname, address, city, phone, email, password } =
+    req.body;
   const customerId = req.params.id;
 
   const updateCustomer = await Customer.findById(customerId);
@@ -43,7 +51,7 @@ const signupcustomer = async (req, res) => {
   updateCustomer.phone = phone;
   updateCustomer.email = email;
   updateCustomer.password = password;
-  
+
   await updateAdmin.save();
 
   res.status(200).json({ Admin: updateAdmin });
