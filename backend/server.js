@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const customerRoutes = require("./routes/customer/customer-route");
 
 
+const promotionapi = require('./api/promotion.api');
+
 
 require('dotenv').config();
 
@@ -33,10 +35,26 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
 
+const feedbackRouter = require('./routes/feedback/feedback-route');
+ 
+app.use('/feedback', feedbackRouter);
+
+
+
+
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
+
+
+
+app.use('/promotion', promotionapi());
+
+const userRouter = require('./controller/route');
+app.use('/users', userRouter);
+
+
 
 app.listen(port, () =>{
   console.log(`server is running on port ${port}`);
