@@ -46,6 +46,15 @@ const CustomerRegister = () => {
       });
   }
 
+  function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
   return (
     <React.Fragment>
       <CustomerNavigation />
@@ -144,8 +153,19 @@ const CustomerRegister = () => {
                           type="password"
                           class="form-control"
                           ref={Password}
+                          id="myInput"
                           required
                         />
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label mr-2">
+                          <input
+                            type="checkbox"
+                            onClick={myFunction}
+                            class="form-check-input"
+                          />{" "}
+                          Show Password
+                        </label>
                       </div>
 
                       <button class="btn btn-primary btn-block" type="submit">

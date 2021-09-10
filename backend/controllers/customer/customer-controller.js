@@ -52,9 +52,9 @@ const updatecustomer = async (req, res) => {
   updateCustomer.email = email;
   updateCustomer.password = password;
 
-  await updateAdmin.save();
+  await updateCustomer.save();
 
-  res.status(200).json({ Admin: updateAdmin });
+  res.status(200).json({ customer: updateCustomer });
 };
 
 const deletecustomer = async (req, res) => {

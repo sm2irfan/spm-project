@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CustomerNavigation from "../customerNavigation";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import CustomerFooter from "../customerFooter";
 import detalis from "../../details.jpg";
@@ -17,6 +17,10 @@ const Profile = () => {
 
     history.push("/");
     window.location.reload();
+  }
+
+  function EditProflie() {
+    history.push("/updateProfile");
   }
 
   useEffect(() => {
@@ -48,15 +52,11 @@ const Profile = () => {
           <div class="container">
             <div class="row">
               <div class="col-md-3">
-                <a href="#" class="btn btn-success btn-block">
+                <button onClick={EditProflie} class="btn btn-success btn-block">
                   Edit Profile
-                </a>
+                </button>
               </div>
-              <div class="col-md-3">
-                <a href="#" class="btn btn-danger btn-block">
-                  <i class="fas fa-trash"></i> Delete Account
-                </a>
-              </div>
+              <div class="col-md-3"></div>
             </div>
           </div>
         </section>
@@ -134,16 +134,6 @@ const Profile = () => {
                           readOnly
                         />
                       </div>
-
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input
-                          type="password"
-                          class="form-control"
-                          value={profile.password}
-                          readOnly
-                        />
-                      </div>
                     </form>
                   </div>
                 </div>
@@ -151,7 +141,7 @@ const Profile = () => {
               <div class="col-md-3">
                 <h3>HI {profile.lastname}</h3>
                 <img src={aveter} alt="" class="d-block img-fluid mb-3" />
-                <button class="btn btn-primary btn-block">Edit Image</button>
+
                 <button class="btn btn-danger btn-block" onClick={logout}>
                   Log out
                 </button>

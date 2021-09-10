@@ -26,9 +26,9 @@ function App() {
   return (
     <React.Fragment>
     
-
     <Route path ="/" exact>
-      <Home/>
+	
+    <Home/>
     </Route>
 
     <Route path ="/customerLogin" exact>
@@ -43,28 +43,11 @@ function App() {
     <CustomerRegister/>
     </Route>
 
-
     <Route path ="/updateProfile" exact>
     <UpdateProfile/>
     </Route>
 
 
-    <Route path ="/addFeedback" exact>
-    <AddFeedback/>
-    </Route>
-    
-    <Route path ="/viewFeedback" exact>
-    <ViewFeedback/>
-    </Route>
-
-     
-    <BrowserRouter>
-            <Route path="/create-promotion" component={CreateProducts} exact/>
-            <Route path="/list-promotion" component={ListProducts} exact/>
-            <Route path="/update-promotion/:id" component={UpdateProducts} exact/>
-
-          </BrowserRouter>
-     
 </React.Fragment>
   );
 }
