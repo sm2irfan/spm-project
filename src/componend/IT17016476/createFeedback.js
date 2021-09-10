@@ -79,7 +79,7 @@ export default class CreateFeedback extends Component {
                 <div class="jumbotron jumbotron-fluid">
                   
                   <div class="card-title">
-                    {/* <h4>Feedback Form</h4> */}
+                    
                   </div>
                   <div class="card-body">
                      <form onSubmit={this.onSubmit}>
