@@ -68,9 +68,9 @@ export default class EditFeedback extends Component {
   }
 
   onSubmit(e) {
-    console.log("This is for feedback checking");
+    console.log("This is for feedback checking 1");
     e.preventDefault();
-    console.log("This is for feedback checking");
+    console.log("This is for feedback checking 2");
     const feedbacks = {
       name: this.state.name,
       email: this.state.email,
