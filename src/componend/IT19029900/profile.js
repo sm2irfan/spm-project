@@ -23,6 +23,17 @@ const Profile = () => {
     history.push("/updateProfile");
   }
 
+  function PDFfunction() {
+    const PDF = async () => {
+      const { data } = await axios.get(
+        `http://localhost:5000/api/customers/pdf/${localStorage.getItem(
+          "CustomerID"
+        )}`
+      );
+    };
+    PDF();
+  }
+
   useEffect(() => {
     const sendRequest = async () => {
       const { data } = await axios.get(
@@ -56,7 +67,11 @@ const Profile = () => {
                   Edit Profile
                 </button>
               </div>
-              <div class="col-md-3"></div>
+              <div class="col-md-3">
+                <button onClick={PDFfunction} class="btn btn-success btn-block">
+                  PDF genarate
+                </button>
+              </div>
             </div>
           </div>
         </section>

@@ -1,12 +1,10 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const customerRoutes = require("./routes/customer/customer-route");
 
-
-
-require('dotenv').config();
+require("dotenv").config();
 
 const app = express();
 app.use(bodyparser.json());
@@ -30,15 +28,13 @@ app.use(cors());
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
-);
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 
 const connection = mongoose.connection;
-connection.once('open', () => {
+connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
-})
+});
 
-app.listen(port, () =>{
+app.listen(port, () => {
   console.log(`server is running on port ${port}`);
-})
-
+});
