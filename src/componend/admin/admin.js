@@ -1,9 +1,11 @@
 import React from "react";
 import { Route } from "react-router";
+import { Link } from "react-router-dom";
 import CustomerNavigation from "../customerNavigation";
 import AdminNavigation from "./adminNavigation";
 import Start from "../start";
 import Home from "../home";
+import AdminPayment from "../IT19029900/admin/adminPayment";
 
 const admin = () => {
   return (
@@ -66,9 +68,9 @@ const admin = () => {
 
                     <div id="collapse2" class="collapse">
                       <div class="card-body">
-                        <a href="#" class="dropdown-item">
-                          Link 1
-                        </a>
+                        <Link to="/admin/payment" class="dropdown-item">
+                          Payment
+                        </Link>
                         <a href="#" class="dropdown-item">
                           Link 2
                         </a>
@@ -200,8 +202,8 @@ const admin = () => {
                   height: "500px",
                 }}
               >
-                <Route path="/admin/start" exact>
-                  <Start />
+                <Route path="/admin/payment" exact>
+                  <AdminPayment />
                 </Route>
               </div>
             </div>

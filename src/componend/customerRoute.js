@@ -5,6 +5,7 @@ import UpdateProfile from "./IT19029900/updateProfile";
 import CustomerProfile from "./IT19029900/profile";
 import CustomerLogin from "./IT19029900/customerLogin";
 import CustomerRegister from "./IT19029900/customerRegister";
+import CustomerPayment from "./IT19029900/customerPayment";
 
 const customerRoute = () => {
   return (
@@ -27,6 +28,10 @@ const customerRoute = () => {
 
       <Route path="/updateProfile" exact>
         <UpdateProfile />
+      </Route>
+
+      <Route path="/payment" exact>
+        <CustomerPayment />
       </Route>
     </React.Fragment>
   );

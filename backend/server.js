@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const customerRoutes = require("./routes/customer/customer-route");
+const paymentRoutes = require("./routes/payment/payment-route");
 
 require("dotenv").config();
 
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/customers", customerRoutes);
+app.use("/api/payments", paymentRoutes);
 
 const port = process.env.PORT || 5000;
 

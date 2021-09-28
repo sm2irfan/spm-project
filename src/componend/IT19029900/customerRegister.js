@@ -5,7 +5,6 @@ import CustomerNavigation from "../customerNavigation";
 import CustomerFooter from "../customerFooter";
 import detalis from "../../details.jpg";
 import axios from "axios";
-import aveter from "../../avatar.png";
 
 const CustomerRegister = () => {
   const First_name = useRef("");
