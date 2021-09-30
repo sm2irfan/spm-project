@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import AdminPaymentItem from "./adminPaymentItem";
 
 const AdminPayment = () => {
   const [pay, setpay] = useState([]);
@@ -19,7 +19,7 @@ const AdminPayment = () => {
 
   useEffect(() => {
     const data2 = pay.filter(function (mov) {
-      if (mov._id.includes(SearchID)) {
+      if (mov.email.includes(SearchID)) {
         return mov;
       } else {
         return null;
@@ -45,7 +45,7 @@ const AdminPayment = () => {
           <input
             class="form-control"
             type="text"
-            placeholder="Find By Name..."
+            placeholder="Find By ID..."
             onChange={(e) => {
               setSearchID(e.target.value);
             }}
@@ -57,28 +57,15 @@ const AdminPayment = () => {
           <thead>
             <tr>
               <th>Payment ID</th>
-              <th>Customer</th>
+
+              <th>Email</th>
               <th>Addreass</th>
               <th>TotalPrice</th>
               <th>State</th>
             </tr>
           </thead>
           {(SearchPay || pay).map((pay) => (
-            <tbody>
-              <tr>
-                <th>{pay._id}</th>
-                <td>{pay.lastname}</td>
-                <td>{pay.address}</td>
-                <td>{pay.totalPrice}</td>
-                <td>{pay.state}</td>
-                <td>
-                  <button class="btn btn-primary btn-block">Approve</button>
-                </td>
-                <td>
-                  <button class="btn btn-primary btn-block">Deliver</button>
-                </td>
-              </tr>
-            </tbody>
+            <AdminPaymentItem payment={pay} />
           ))}
         </table>
       </div>

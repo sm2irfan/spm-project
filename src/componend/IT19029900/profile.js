@@ -14,6 +14,7 @@ const Profile = () => {
   function logout() {
     localStorage.removeItem("CustomerIsLoggedIn");
     localStorage.removeItem("CustomerID");
+    localStorage.removeItem("CustomerEmail");
 
     history.push("/");
     window.location.reload();
@@ -71,6 +72,11 @@ const Profile = () => {
                 <button onClick={PDFfunction} class="btn btn-success btn-block">
                   PDF genarate
                 </button>
+              </div>
+              <div class="col-md-3">
+                <Link to="/paymentHistory" class="btn btn-success btn-block">
+                  Payment History
+                </Link>
               </div>
             </div>
           </div>

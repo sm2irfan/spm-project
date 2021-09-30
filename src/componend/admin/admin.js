@@ -15,7 +15,7 @@ const admin = () => {
           style={{
             backgroundColor: "black",
             width: "100%",
-            height: "800px",
+            height: "100%",
           }}
         >
           <AdminNavigation />
@@ -199,7 +199,7 @@ const admin = () => {
                 style={{
                   backgroundColor: "white",
                   width: "100%",
-                  height: "500px",
+                  height: "1000px",
                 }}
               >
                 <Route path="/admin/payment" exact>
