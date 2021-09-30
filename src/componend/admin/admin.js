@@ -7,6 +7,13 @@ import Start from "../start";
 import Home from "../home";
 import AdminPayment from "../IT19029900/admin/adminPayment";
 
+import CreatePro from '../IT19031026/create/createpromotion';
+import ListPro from '../IT19031026/list/listspromotion';
+import UpdatePro from '../IT19031026/update/updatepromotion';
+import ListCustomerpro from '../IT19031026/list/listcustomer';
+import Adminpro from '../IT19031026/admin/admin';
+
+
 const admin = () => {
   return (
     <React.Fragment>
@@ -152,14 +159,14 @@ const admin = () => {
 
                     <div id="collapse5" class="collapse">
                       <div class="card-body">
-                        <a href="#" class="dropdown-item">
-                          Link 1
+                      <a href="/admin/admin-create-promotion" class="dropdown-item">
+                          Add
                         </a>
-                        <a href="#" class="dropdown-item">
-                          Link 2
+                        <a href="/admin/admin-list-promotion" class="dropdown-item">
+                          List
                         </a>
-                        <a href="#" class="dropdown-item">
-                          Link 3
+                        <a href="/admin/admin-reject-promotion" class="dropdown-item">
+                          Desicion
                         </a>
                       </div>
                     </div>
@@ -205,6 +212,21 @@ const admin = () => {
                 <Route path="/admin/payment" exact>
                   <AdminPayment />
                 </Route>
+
+
+                <Route path="/admin/admin-create-promotion" exact>
+                  <CreatePro />
+                </Route>
+                <Route path="/admin/admin-list-promotion" exact>
+                  <ListPro />
+                </Route>
+                <Route path="/admin/admin-update-promotion/:id" exact>
+                  <UpdatePro />
+                </Route>
+                <Route path="/admin/admin-reject-promotion" exact>
+                  <Adminpro />
+                </Route>
+
               </div>
             </div>
           </div>
