@@ -56,6 +56,21 @@ const customerNavigation = () => {
                 </div>
               </li>
             )}
+
+            <li class="nav-item">
+              {localStorage.getItem("CustomerIsLoggedIn") && (
+                <Link class="nav-link" to="/addtoCart">
+                  AddtoCard
+                </Link>
+              )}
+            </li>
+
+
+
+
+
+
+
           </ul>
         </div>
       </nav>

@@ -11,7 +11,7 @@ class ListPromotion extends Component{
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/promotion/getallpromotion')
+        axios.get('http://localhost:4000/promotion/getallpromotion')
         .then(response => {
             console.log(response.data.data);
             this.setState({products: response.data.data});
@@ -19,7 +19,7 @@ class ListPromotion extends Component{
     }
 
     navigatedelete(e, promotionId) {
-        axios.delete("http://localhost:5000/promotion/deletepromotion/" + promotionId)
+        axios.delete("http://localhost:4000/promotion/deletepromotion/" + promotionId)
         .then((response) => {
           console.log(response.data.data);
           window.location = "/list-promotion"

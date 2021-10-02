@@ -7,6 +7,7 @@ import CustomerLogin from "./IT19029900/customerLogin";
 import CustomerRegister from "./IT19029900/customerRegister";
 import CustomerPayment from "./IT19029900/customerPayment";
 import CutomerPaymentHistory from "./IT19029900/cutomerPaymentHistory";
+import AddtoCart from "./IT19018256/cartHome";
 
 const customerRoute = () => {
   return (
@@ -38,6 +39,11 @@ const customerRoute = () => {
       <Route path="/paymentHistory" exact>
         <CutomerPaymentHistory />
       </Route>
+
+      <Route path="/addtoCart" exact>
+        <AddtoCart />
+      </Route>
+
     </React.Fragment>
   );
 };

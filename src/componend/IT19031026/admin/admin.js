@@ -16,7 +16,7 @@ class Admin extends Component{
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/promotion/getallpromotion')
+        axios.get('http://localhost:4000/promotion/getallpromotion')
         .then(response => {
             console.log(response.data.data);
             this.setState({products: response.data.data});
@@ -32,7 +32,7 @@ class Admin extends Component{
     
         console.log(promotion);
     
-        axios.post('http://localhost:5000/promotion/updatepromotion/' + promotionId, promotion)
+        axios.post('http://localhost:4000/promotion/updatepromotion/' + promotionId, promotion)
           .then(res => console.log(res.data));
     
           window.location = "/admin/admin-reject-promotion";
@@ -46,7 +46,7 @@ class Admin extends Component{
     
         console.log(promotion);
     
-        axios.post('http://localhost:5000/promotion/updatepromotion/' + promotionId, promotion)
+        axios.post('http://localhost:4000/promotion/updatepromotion/' + promotionId, promotion)
           .then(res => console.log(res.data));
     
           window.location = "/admin/admin-reject-promotion";

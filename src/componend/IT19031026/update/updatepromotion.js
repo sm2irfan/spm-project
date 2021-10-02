@@ -23,7 +23,7 @@ class UpdatePromotion extends Component{
         }
 
         componentDidMount() {
-            axios.get('http://localhost:5000/promotion/getpromotion/6126b4a3b6653a18189d1dc3')
+            axios.get('http://localhost:4000/promotion/getpromotion/6126b4a3b6653a18189d1dc3')
               .then(response => {
                 //console.log(this.props.match.params.id);
                 this.setState({
@@ -54,7 +54,7 @@ class UpdatePromotion extends Component{
             
                 console.log(promotion);
             
-                axios.post('http://localhost:5000/promotion/updatepromotion/6126b4a3b6653a18189d1dc3', promotion)
+                axios.post('http://localhost:4000/promotion/updatepromotion/6126b4a3b6653a18189d1dc3', promotion)
                   .then(res => console.log(res.data));
             
                   window.location = "/admin/admin-list-promotion";
@@ -63,7 +63,7 @@ class UpdatePromotion extends Component{
                 report(e){
                   const PDF = async () => {
                       const { data } = await axios.get(
-                        `http://localhost:5000/promotion/pdfpromotion/6126b4a3b6653a18189d1dc3`
+                        `http://localhost:4000/promotion/pdfpromotion/6126b4a3b6653a18189d1dc3`
                       );
                     };
                     PDF();

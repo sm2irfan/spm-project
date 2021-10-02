@@ -27,7 +27,7 @@ const CreatePromotion = () => {
 
 
 
-        axios.post('http://localhost:5000/users/fileupload', formData)
+        axios.post('http://localhost:4000/users/fileupload', formData)
              .then(res => {
                 console.log(res.data.data);
                 alert('inserted');

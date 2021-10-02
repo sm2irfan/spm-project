@@ -9,7 +9,7 @@ const Product = props => (
     <td>{props.products.description}</td>
     <td>{props.products.price}</td>
     <td>
-      <Link to={"/edit/" + props.products._id}>edit</Link> | <a href="#" onClick={() => { props.deleteProduct(props.products._id) }}>delete</a>
+      <Link to={"/admin/edit/" + props.products._id}>edit</Link> | <a onClick={() => { props.deleteProduct(props.products._id) }}>delete</a>
     </td>
   </tr>
 )
@@ -49,14 +49,14 @@ export default class ProductList extends Component {
     })
   }
 
-  PDFfucntion(){
-    const pdf = async() =>{
-      const {data} = await axios.get(
-        `http://localhost:5000/product/generatePDF`
-      )
-    };
-    pdf();
-  }
+  // PDFfucntion(){
+  //   const pdf = async() =>{
+  //     const {data} = await axios.get(
+  //       `http://localhost:5000/product/generatePDF`
+  //     )
+  //   };
+  //   pdf();
+  // }
 
   render() {
     return (
@@ -96,7 +96,7 @@ export default class ProductList extends Component {
             </table>
 
             <div className="col-md-3">
-              <button onClick={this.PDFfucntion()} className="btn btn-success btn-block">
+              <button className="btn btn-success btn-block">
                 pdfGene
               </button>
             </div>

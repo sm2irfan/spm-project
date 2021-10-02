@@ -4,6 +4,7 @@ const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const customerRoutes = require("./routes/customer/customer-route");
 const paymentRoutes = require("./routes/payment/payment-route");
+const productRouter = require('./routes/product/product.route');
 
 require("dotenv").config();
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 
 app.use("/api/customers", customerRoutes);
 app.use("/api/payments", paymentRoutes);
+app.use('/product', productRouter);
 
 const port = process.env.PORT || 5000;
 
